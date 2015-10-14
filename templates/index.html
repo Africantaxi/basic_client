@@ -10,7 +10,7 @@
     }
 
     function redirectPosition(position) {
-        location.href = '/?lat='+position.coords.latitude+'&lon='+position.coords.longitude;
+        location.href = '/?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&apikey='+{{ apikey }};
     }
     window.onload = function() {
         getLocation();
@@ -21,7 +21,7 @@
 <body>
     <ul>
         {% for taxi in taxis %}
-        <li><a href="hail?taxi_id={{ taxi.id }}&operateur={{ taxi.operator }}&lat={{ lat }}&lon={{ lon }}">{{ taxi.id }}</a>: {{ taxi.operator }} ({{ taxi.distance }})</li>
+        <li><a href="hail?taxi_id={{ taxi.id }}&operateur={{ taxi.operator }}&lat={{ lat }}&lon={{ lon }}&apikey={{ apikey }}">{{ taxi.id }}</a>: {{ taxi.operator }} ({{ taxi.distance }})</li>
         {% endfor%}
     </ul>
 </body>
