@@ -6,7 +6,7 @@ This small script provides a basic client for le.taxi API.
 Environment
 -----------
 
-You need a python 2.7, and it's better if you have virtualenv on your machine.
+You need a python 2.7 and pip, and it's better if you have virtualenv on your machine.
 
 Settings
 --------
