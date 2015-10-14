@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>ACME</title>
+    {% if get_location %}
+    <script type="application/javascript">
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(redirectPosition);
+        }
+    }
+
+    function redirectPosition(position) {
+        location.href = '/?lat='+position.coords.latitude+'&lon='+position.coords.longitude;
+    }
+    window.onload = function() {
+        getLocation();
+    }
+    </script>
+    {% endif %}
+</head>
+<body>
+    <ul>
+        {% for taxi in taxis %}
+        <li><a href="hail?taxi_id={{ taxi.id }}&operateur={{ taxi.operator }}&lat={{ lat }}&lon={{ lon }}">{{ taxi.id }}</a>: {{ taxi.operator }} ({{ taxi.distance }})</li>
+        {% endfor%}
+    </ul>
+</body>
+</html>
